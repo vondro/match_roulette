@@ -10,6 +10,21 @@ let obj = {};
 let idx = 1;
 let objLen = 0;
 
+/* this code alerts code of pressed key
+document.addEventListener('keydown', function(event){
+    alert(event.keyCode);
+} );*/
+
+window.onkeyup = function(e) {
+    var key = e.keyCode ? e.keyCode : e.which;
+    
+    if (key == 78) {
+        setNext();
+    } else if (key == 80) {
+        setPrevious();
+    }
+}
+
 
 function handleFileSelect(evt) {
     let file = evt.target.files[0];
@@ -30,7 +45,7 @@ function loaded(evt) {
     // make the object obj from the obtained string
     obj = JSON.parse(fileString);
     objLen = Object.keys(obj).length;
-    console.log(objLen);
+    idx = 1;
     setInfo()
     //console.log(obj);
 }
