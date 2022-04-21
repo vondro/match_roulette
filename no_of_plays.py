@@ -1,6 +1,6 @@
 if __name__ == "__main__":
     #print("Hello world!")
-    i=8
+    i=7
     j=0
     i-=1
     while i > 0:

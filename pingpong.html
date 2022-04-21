@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <title>Ping Pong 2.0</title>
+    <script src="pingpong.js"></script>
+</head>
+<body>
+    <h1>Ping Pong</h1>
+    <div class="settings">
+        <h2>Game settings</h2>
+        <form id="settings-form">
+            <label for="playerno">Number of players:</label>
+            <input type="text" id="playerno" name="playerno">
+            <label for="groupno">Number of groups:</label>
+            <input type="text" id="groupno" name="groupno">
+            <label for="levelno">Number of levels:</label> 
+            <input type="text" id="levelno" name="levelno">
+            <input type="button" name="generate-btn" value="Generate players" onclick="generatePlayerInput(this.form)">
+            <input type="button" name="add-btn" value="Add form item" onclick="addFormItem(this.form)">
+            <br>
+
+
+        </form>
+    </div>
+    <div class="players">
+
+    </div>
+    <div class="tables">
+
+    </div>
+</body>
