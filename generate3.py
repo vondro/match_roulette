@@ -43,6 +43,7 @@ random.shuffle(players)
 group_size = len(players) // NO_GROUP
 groups = [players[i:i + group_size] for i in range(0, len(players), group_size)]
 
+
 # If the last group has fewer players, distribute them among other groups
 while len(groups[-1]) < group_size:
     for i in range(len(groups)-1):
@@ -51,12 +52,35 @@ while len(groups[-1]) < group_size:
             break
         groups[i].append(groups[-1].pop())
 
+# write groups to txt
+out_groups = open('groups.txt', 'w', encoding='utf-8')
+
+i=1
+for group in groups:
+    out_groups.write("\nSkupina " + str(i) + ":\n")
+    for line in group:
+        out_groups.writelines(line + '\n')
+
+    i+=1
+
+out_groups.close()
+
 # Generating round-robin pairings for each group
 final_schedule = interleave_group_schedules(groups)
 
 position = 1
 
 # Print out the final schedule
+# for match in final_schedule:
+#     print(f"{position}: {match[0]} vs. {match[1]}")
+#     position += 1
+
+# write pairs to txt and json
+out = open('pairs.txt', 'w', encoding='utf-8')
+i = 1
 for match in final_schedule:
-    print(f"{position}: {match[0]} vs. {match[1]}")
-    position += 1
+    out.writelines(f"{i}: {match[0]} vs. {match[1]}\n")
+
+    i += 1
+
+out.close()
