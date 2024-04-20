@@ -1,8 +1,6 @@
 import random
 from itertools import combinations
 
-
-# Global variable
 NO_GROUP = 2  # Example value, set this to the number of desired groups
 
 def generate_round_robin_pairs(players):
